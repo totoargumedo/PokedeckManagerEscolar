@@ -56,14 +56,17 @@ El objetivo es **completar las funciones que manipulan el array `pokemons`** y l
 
 ### 2️⃣ Clonar el repositorio
 
-````bash
+```bash
 git clone https://github.com/<usuario>/<nombre-del-repo>.git
+```
 
 3️⃣ Crear una nueva rama
 
 Recomendado para mantener su trabajo organizado.
+
 ```bash
 git checkout -b grupoX-funcion
+```
 
 4️⃣ Programar la función asignada
 
@@ -74,24 +77,30 @@ Agregar su función en el archivo app.js (al final o antes de los eventos según
 Abrir index.html en el navegador y probar que la función realiza lo que se pide sin errores en consola.
 
 6️⃣ Subir los cambios
+
 ```bash
 git add .
 git commit -m "Agrego función <nombreFunción>"
 git push origin grupoX-funcion
+```
 
 7️⃣ Crear un Pull Request
 
 Desde GitHub → Compare & Pull Request → describir brevemente qué función implementaron.
 
+---
+
 🧠 Funciones asignadas por grupo
-| Grupo | Función                                       | Descripción breve                                                                |
+| Grupo | Función | Descripción breve |
 | :---- | :-------------------------------------------- | :------------------------------------------------------------------------------- |
-| 1     | `buscarPokemon(nombre, listaPokemons)`        | Busca y devuelve un Pokémon por nombre. Devuelve array vacío si no lo encuentra. |
-| 2     | `filtrarPorTipo(tipo, listaPokemons)`         | Devuelve un array filtrado por tipo.                                             |
-| 3     | `bajarVida(nombre, puntos, listaPokemons)`    | Resta puntos de vida, sin permitir valores negativos.                            |
-| 4     | `agregarPokemon(nuevoPokemon, listaPokemons)` | Agrega un nuevo Pokémon validando duplicados y datos.                            |
-| 5     | `eliminarPokemon(nombre, listaPokemons)`      | Elimina un Pokémon del array según nombre.                                       |
-| 6     | `curarPokemon(nombre, puntos, listaPokemons)` | Suma puntos de vida sin superar 100.                                             |
+| 1 | `buscarPokemon(nombre, listaPokemons)` | Busca y devuelve un Pokémon por nombre. Devuelve array vacío si no lo encuentra. |
+| 2 | `filtrarPorTipo(tipo, listaPokemons)` | Devuelve un array filtrado por tipo. |
+| 3 | `bajarVida(nombre, puntos, listaPokemons)` | Resta puntos de vida, sin permitir valores negativos. |
+| 4 | `agregarPokemon(nuevoPokemon, listaPokemons)` | Agrega un nuevo Pokémon validando duplicados y datos. |
+| 5 | `eliminarPokemon(nombre, listaPokemons)` | Elimina un Pokémon del array según nombre. |
+| 6 | `curarPokemon(nombre, puntos, listaPokemons)` | Suma puntos de vida sin superar 100. |
+
+---
 
 🧩 Requerimientos técnicos mínimos
 
@@ -113,6 +122,8 @@ Realizar 1 pull request al repo original del docente.
 
 Probar el funcionamiento completo antes de entregar.
 
+---
+
 🧭 Sugerencias
 
 Revisen bien los nombres de variables y funciones.
@@ -123,6 +134,8 @@ Consultar por Teams en el canal #dudas-y-ayuda si algo no funciona.
 
 No borrar código existente: ¡integremos, no rompamos!
 
+---
+
 🧠 Bonus (opcional)
 
 Si terminan antes, pueden:
@@ -132,4 +145,3 @@ Agregar una función para ordenar Pokémon por vida o tipo.
 Crear un botón de “Curar a todos”.
 
 Implementar un contador de batallas ganadas en localStorage (si ya vimos el tema).
-````
