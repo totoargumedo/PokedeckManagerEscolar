@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PokéDeck Manager</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>PokéDeck Manager</h1>
+    </header>
+
+    <main>
+      <section class="controls">
+        <input type="text" id="buscar" placeholder="Buscar Pokémon..." />
+        <button id="btnBuscar">Buscar</button>
+
+        <select id="filtroTipo">
+          <option value="">Todos</option>
+          <option value="Fuego">Fuego</option>
+          <option value="Agua">Agua</option>
+          <option value="Eléctrico">Eléctrico</option>
+          <option value="Planta">Planta</option>
+        </select>
+
+        <button id="btnMostrarTodos">Mostrar todos</button>
+      </section>
+
+      <section class="formulario">
+        <h3>Agregar nuevo Pokémon</h3>
+        <input id="nombreNuevo" placeholder="Nombre" />
+        <input id="tipoNuevo" placeholder="Tipo" />
+        <input id="vidaNueva" type="number" placeholder="Vida" />
+        <input id="imagenNueva" placeholder="URL de imagen" />
+        <button id="btnAgregar">Agregar Pokémon</button>
+      </section>
+
+      <section id="lista" class="grid"></section>
+    </main>
+
+    <script src="pokemons.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
