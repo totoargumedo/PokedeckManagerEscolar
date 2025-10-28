@@ -1,57 +1,67 @@
 body {
-  font-family: "Poppins", sans-serif;
-  background: #fafafa;
-  color: #333;
+  font-family: "Segoe UI", sans-serif;
+  background: #f2f2f2;
   margin: 0;
   padding: 0;
-  text-align: center;
 }
 
 header {
-  background: linear-gradient(90deg, #ffcb05, #3b4cca);
-  color: white;
+  background: #ffcb05;
+  color: #2a75bb;
+  text-align: center;
   padding: 1rem;
 }
 
 .controls,
-.formulario {
-  margin: 1rem auto;
+.new-pokemon {
   display: flex;
-  justify-content: center;
   gap: 10px;
-  flex-wrap: wrap;
-}
-
-.grid {
-  display: flex;
   justify-content: center;
+  margin: 1rem 0;
   flex-wrap: wrap;
-  gap: 15px;
-  margin: 20px;
 }
 
-.pokemon-card {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 10px;
-  width: 150px;
+.pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card {
   background: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.pokemon-card img {
-  width: 100px;
-  height: 100px;
+.card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
 }
 
-button {
-  background-color: #3b4cca;
-  color: white;
+.card button {
+  margin: 0.2rem;
+  padding: 0.3rem 0.5rem;
   border: none;
   border-radius: 5px;
-  padding: 5px 10px;
   cursor: pointer;
 }
-button:hover {
-  background-color: #2a379e;
+
+.btn-attack {
+  background-color: #ff6961;
+  color: white;
+}
+.btn-heal {
+  background-color: #77dd77;
+  color: white;
+}
+.btn-delete {
+  background-color: #555;
+  color: white;
 }

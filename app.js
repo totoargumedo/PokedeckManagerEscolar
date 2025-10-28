@@ -1,69 +1,63 @@
-// ----- ELEMENTOS DEL DOM -----
-const lista = document.getElementById("lista");
-const inputBuscar = document.getElementById("buscar");
-const botonBuscar = document.getElementById("btnBuscar");
-const filtroTipo = document.getElementById("filtroTipo");
-const botonMostrarTodos = document.getElementById("btnMostrarTodos");
-const botonAgregar = document.getElementById("btnAgregar");
+const contenedor = document.getElementById("listaPokemons");
+const btnBuscar = document.getElementById("btnBuscar");
+const btnFiltrar = document.getElementById("btnFiltrar");
+const btnAgregar = document.getElementById("btnAgregar");
 
-// Inputs del formulario
-const nombreNuevo = document.getElementById("nombreNuevo");
-const tipoNuevo = document.getElementById("tipoNuevo");
-const vidaNueva = document.getElementById("vidaNueva");
-const imagenNueva = document.getElementById("imagenNueva");
-
-// ----- FUNCIONES COMPLETAS -----
-
-function renderPokemons(array) {
-  lista.innerHTML = "";
-  array.forEach((p) => {
+function renderPokemons(lista) {
+  contenedor.innerHTML = "";
+  lista.forEach((p) => {
     const card = document.createElement("div");
-    card.className = "pokemon-card";
+    card.className = "card";
     card.innerHTML = `
-      <img src="${p.imagen}" alt="${p.nombre}">
+      <img src="${p.foto}" alt="${p.nombre}">
       <h3>${p.nombre}</h3>
-      <p>Tipo: ${p.tipo}</p>
-      <p>Vida: ${p.vida}</p>
-      <button class="btnGolpe" data-nombre="${p.nombre}">Atacar</button>
+      <p>Nivel: ${p.nivel}</p>
+      <p>HP: ${p.hp} / ${p.hp_total}</p>
+      <p>Tipo: ${p.tipo.join(", ")}</p>
+      <button class="btn-attack" onclick="bajarVida('${
+        p.nombre
+      }', 10, pokemons)">Atacar</button>
+      <button class="btn-heal" onclick="curarPokemon('${
+        p.nombre
+      }', 10, pokemons)">Curar</button>
+      <button class="btn-delete" onclick="eliminarPokemon('${
+        p.nombre
+      }', pokemons)">Eliminar</button>
     `;
-    lista.appendChild(card);
+    contenedor.appendChild(card);
   });
 }
 
 renderPokemons(pokemons);
 
-// ----- EVENTOS -----
-
-botonBuscar.addEventListener("click", () => {
-  const nombre = inputBuscar.value.trim().toLowerCase();
+// BOTONES PRINCIPALES
+btnBuscar.addEventListener("click", () => {
+  const nombre = document.getElementById("buscarInput").value.trim();
   const resultado = buscarPokemon(nombre, pokemons);
+  renderPokemons(resultado.length ? resultado : pokemons);
+});
+
+btnFiltrar.addEventListener("click", () => {
+  const tipo = document.getElementById("filtroTipo").value;
+  const resultado = tipo ? filtrarPorTipo(tipo, pokemons) : pokemons;
   renderPokemons(resultado);
 });
 
-filtroTipo.addEventListener("change", () => {
-  const tipo = filtroTipo.value;
-  const filtrados = filtrarPorTipo(tipo, pokemons);
-  renderPokemons(filtrados);
-});
-
-botonMostrarTodos.addEventListener("click", () => renderPokemons(pokemons));
-
-botonAgregar.addEventListener("click", () => {
+btnAgregar.addEventListener("click", () => {
+  const nombre = document.getElementById("nombreNuevo").value.trim();
+  const tipo = document.getElementById("tipoNuevo").value.trim();
+  const nivel = parseInt(document.getElementById("nivelNuevo").value);
+  const hp = parseInt(document.getElementById("hpNuevo").value);
+  const foto = document.getElementById("fotoNuevo").value.trim();
   const nuevo = {
-    nombre: nombreNuevo.value,
-    tipo: tipoNuevo.value,
-    vida: parseInt(vidaNueva.value),
-    imagen: imagenNueva.value,
+    nombre,
+    nivel,
+    tipo: [tipo],
+    foto,
+    hp,
+    hp_total: hp,
+    evolucion: false,
   };
   agregarPokemon(nuevo, pokemons);
   renderPokemons(pokemons);
-});
-
-// Evento para ataque
-lista.addEventListener("click", (e) => {
-  if (e.target.classList.contains("btnGolpe")) {
-    const nombre = e.target.dataset.nombre;
-    bajarVida(nombre, 20, pokemons);
-    renderPokemons(pokemons);
-  }
 });

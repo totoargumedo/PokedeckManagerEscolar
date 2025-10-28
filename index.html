@@ -13,30 +13,34 @@
 
     <main>
       <section class="controls">
-        <input type="text" id="buscar" placeholder="Buscar Pokémon..." />
+        <input
+          type="text"
+          id="buscarInput"
+          placeholder="Buscar Pokémon por nombre..."
+        />
         <button id="btnBuscar">Buscar</button>
 
         <select id="filtroTipo">
-          <option value="">Todos</option>
-          <option value="Fuego">Fuego</option>
-          <option value="Agua">Agua</option>
-          <option value="Eléctrico">Eléctrico</option>
-          <option value="Planta">Planta</option>
+          <option value="">Todos los tipos</option>
+          <option value="fuego">🔥 Fuego</option>
+          <option value="agua">💧 Agua</option>
+          <option value="planta">🌿 Planta</option>
+          <option value="eléctrico">⚡ Eléctrico</option>
         </select>
-
-        <button id="btnMostrarTodos">Mostrar todos</button>
+        <button id="btnFiltrar">Filtrar</button>
       </section>
 
-      <section class="formulario">
-        <h3>Agregar nuevo Pokémon</h3>
-        <input id="nombreNuevo" placeholder="Nombre" />
-        <input id="tipoNuevo" placeholder="Tipo" />
-        <input id="vidaNueva" type="number" placeholder="Vida" />
-        <input id="imagenNueva" placeholder="URL de imagen" />
+      <section class="new-pokemon">
+        <h2>Agregar nuevo Pokémon</h2>
+        <input type="text" id="nombreNuevo" placeholder="Nombre" />
+        <input type="text" id="tipoNuevo" placeholder="Tipo (ej: fuego)" />
+        <input type="number" id="nivelNuevo" placeholder="Nivel" />
+        <input type="number" id="hpNuevo" placeholder="HP total" />
+        <input type="text" id="fotoNuevo" placeholder="URL de imagen" />
         <button id="btnAgregar">Agregar Pokémon</button>
       </section>
 
-      <section id="lista" class="grid"></section>
+      <section id="listaPokemons" class="pokemon-list"></section>
     </main>
 
     <script src="pokemons.js"></script>
